@@ -15,14 +15,14 @@ public class Home implements Utils {
 
 	public static WebDriver driver;
 
-
+        //All the variables are stored in the interface
 	public static void initiate() {
 		System.setProperty(key,path);
 		driver=new ChromeDriver();	
 		driver.get(url);
 		driver.manage().timeouts().implicitlyWait(05,TimeUnit.SECONDS);
 	}
-
+        //Verify the title of the page
 	public static void titleverify() {
 
 		String title=driver.getTitle();
@@ -38,13 +38,13 @@ public class Home implements Utils {
 
 	}
 
-
+         //Send inputs to the google search
 	public static void sendInp(String send) {
 
 		driver.findElement(By.name("q")).sendKeys(send);
 	}
 
-
+        //Store the result into list and display in the console
 	public static void searchResults() {
 
 		List<WebElement> findElements = driver.findElements(By.xpath("//*[@id=\"tsf\"]/div[2]/div/div[2]/div[2]/ul"));
@@ -57,7 +57,7 @@ public class Home implements Utils {
 	}
 
 
-
+ //Callin all the method in the main method
 	public static void main(String[] args) throws Exception {
 
 		initiate();
